@@ -1,0 +1,32 @@
+﻿@model Worker
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="container">
+    <form method="post" asp-action="create" enctype="multipart/form-data">
+        <div class="form-group">
+            <label asp-for="FullName">Enter fullname</label>
+            <input asp-for="FullName" placeholder="Enter fullname">
+            <span class="text text-danger" asp-validation-for="FullName"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Profession">Enter profession</label>
+            <input asp-for="Profession" placeholder="Enter profession">
+            <span class="text text-danger" asp-validation-for="Profession"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Text">Enter text</label>
+            <input asp-for="Text" placeholder="Enter text">
+            <span class="text text-danger" asp-validation-for="Text"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="ImageFile">Enter text</label>
+            <input asp-for="ImageFile" placeholder="Enter text">
+            <span class="text text-danger" asp-validation-for="ImageFile"></span>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

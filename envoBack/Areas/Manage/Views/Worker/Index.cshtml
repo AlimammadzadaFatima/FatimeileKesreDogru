@@ -1,0 +1,46 @@
+﻿@model List<Worker>
+@{
+    ViewData["Title"] = "Index";
+    int count = 0;
+}
+
+<div class="container">
+    <a class="btn btn-primary" asp-action="Create" asp-controller="worker">Create</a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Fullname</th>
+                <th scope="col">Profession</th>
+                <th scope="col">Text</th>
+                <th scope="col">Image</th>
+                <th scope="col">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <th scope="row">@count</th>
+                    <td>@item.FullName</td>
+                    <td>@item.Profession</td>
+                    <td>@item.Text</td>
+                    <td>
+                        <img width="100" src="~/uploads/worker/@item.Image" />
+                    </td>
+                    <td>
+                        <a class="btn btn-primary" asp-action="Edit" asp-controller="worker" asp-route-id="@item.Id">Edit</a>
+                        <a class="btn btn-danger delete-btn" asp-action="Delete" asp-controller="worker" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+@section Scripts{
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10/dist/sweetalert2.all.min.js"></script>
+}
